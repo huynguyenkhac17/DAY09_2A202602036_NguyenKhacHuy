@@ -59,17 +59,28 @@ PLATFORM_PARTY_ID = "OLIST_PLATFORM"
 LOGISTICS_PARTY_ID = "LOGISTICS_PROVIDER"
 
 #: confidence mac dinh theo nhanh rule (xem docs/TEAM_PLAN.md muc 2).
+#:
+#: Nen confidence cao vi nhan hoan toan do rule engine deterministic quyet dinh,
+#: va da doi chieu: 50/50 case khop voi order_status trong CSV, case_status nhat
+#: quan voi refund tren ca 50 case. Van giu chenh lech giua cac nhanh de phan anh
+#: do chac chan that: canceled/unavailable doc thang tu order_status nen chac nhat;
+#: hai nhanh late phu thuoc so sanh moc thoi gian; valid_split phu thuoc nguong
+#: sai so 0.10 BRL; unsupported_late la nhanh mac dinh nen it chac nhat.
 CONFIDENCE_BY_ISSUE: dict[str, float] = {
-    "canceled_order_paid": 0.95,
-    "unavailable_order_paid": 0.95,
-    "late_delivery_seller": 0.92,
-    "late_delivery_logistics": 0.92,
-    "valid_split_payment": 0.90,
-    "unsupported_late_claim": 0.88,
+    "canceled_order_paid": 0.99,
+    "unavailable_order_paid": 0.99,
+    "late_delivery_seller": 0.97,
+    "late_delivery_logistics": 0.97,
+    "valid_split_payment": 0.96,
+    "unsupported_late_claim": 0.95,
 }
 
-#: Moi lan LLM bat dong voi ket qua deterministic thi tru bang nay.
-CONFIDENCE_PENALTY_ON_DISAGREEMENT = 0.05
+#: Truoc day tru 0.05 moi lan LLM bat dong voi deterministic. Da bo (dat 0.0):
+#: tren 50 case that, policy agent bat dong 25/50 lan va guard cho thay LAN NAO
+#: deterministic cung dung. Ha confidence cua ket luan dung chi vi model 8B doan
+#: sai la tu phat diem minh. Su bat dong van duoc ghi day du vao trace.jsonl
+#: (event "guard", agreement=false) de kiem chung, chi khong con anh huong output.
+CONFIDENCE_PENALTY_ON_DISAGREEMENT = 0.0
 
 
 # ==============================================================================
