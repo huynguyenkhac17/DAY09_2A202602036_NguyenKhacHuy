@@ -6,11 +6,11 @@
 
 | Thông tin       | Nội dung     |
 | --------------- | ------------ |
-| Họ và tên       | [Họ và tên]  |
-| MSSV            | [MSSV]       |
-| Khóa/Lớp        | [K3]         |
-| Vai trò chính   | [Vai trò]    |
-| Ngày hoàn thành | [YYYY-MM-DD] |
+| Họ và tên       | Nguyễn Quốc Hiệu  |
+| MSSV            | 2A202601627       |
+| Khóa/Lớp        | K3         |
+| Vai trò chính   | Policy + Verifier + trace    |
+| Ngày hoàn thành | 2026-08-05 |
 
 ## 2. Vai trò và phạm vi công việc
 
