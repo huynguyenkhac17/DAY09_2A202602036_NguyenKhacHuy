@@ -53,8 +53,10 @@ def check() -> tuple[list[pathlib.Path], list[str]]:
     if extra:
         errors.append(f"THUA file la: {extra}")
 
+    # .gitkeep la file cua repo, khong bao gio duoc dua vao zip (zip chi lay EC_*.json)
     stray = [p.name for p in OUTPUT_DIR.iterdir()
-             if p.is_file() and not re.fullmatch(r"EC_\d{3}\.json", p.name)]
+             if p.is_file() and p.name != ".gitkeep"
+             and not re.fullmatch(r"EC_\d{3}\.json", p.name)]
     if stray:
         errors.append(f"File la trong output/ (phai xoa truoc khi zip): {stray}")
 

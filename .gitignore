@@ -15,6 +15,7 @@ __pycache__/
 
 # --- artifact tam ---
 output/*.zip
+/output.zip
 .cache/
 *.log
 
