@@ -1,0 +1,10 @@
+{
+  "case_id": "EC_009",
+  "opened_at": "2018-10-18T00:00:00-03:00",
+  "customer_request": {
+    "language": "vi",
+    "message": "Tôi thấy nhiều giao dịch trừ tiền cho cùng một đơn. Hãy kiểm tra giúp tôi.",
+    "claimed_order_id": "e481f51cbdc54678b7cc49136f2d6af7"
+  },
+  "policy_version": "EC_POLICY_V1"
+}
