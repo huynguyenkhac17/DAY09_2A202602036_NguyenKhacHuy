@@ -28,7 +28,14 @@ sys.path.insert(0, str(ROOT))
 from src.contracts import CaseOutput  # noqa: E402
 
 OUTPUT_DIR = ROOT / "output"
-ZIP_PATH = ROOT / "output.zip"
+ZIP_PATH = ROOT / "submission.zip"
+
+#: File kem theo trong zip: (duong dan trong repo, ten trong zip)
+EXTRA_FILES = [
+    (ROOT / "architecture.md", "architecture.md"),
+    (ROOT / "logging" / "trace.jsonl", "trace.jsonl"),
+    (ROOT / "logging" / "metadata.json", "metadata.json"),
+]
 
 EXPECTED = [f"EC_{i:03d}" for i in range(1, 51)]
 
@@ -118,19 +125,45 @@ def main() -> int:
             print(f"    ... va {len(errors) - 30} loi nua")
         return 1
 
+    # File kem theo phai ton tai va khong rong
+    for src, arc in EXTRA_FILES:
+        if not src.exists():
+            errors.append(f"Thieu file bat buoc: {src.relative_to(ROOT)}")
+        elif src.stat().st_size == 0:
+            errors.append(f"File rong: {src.relative_to(ROOT)}")
+    if errors:
+        print(f"[x] {len(errors)} loi - KHONG tao zip:\n")
+        for e in errors:
+            print(f"    {e}")
+        return 1
+
     if ZIP_PATH.exists():
         ZIP_PATH.unlink()
     with zipfile.ZipFile(ZIP_PATH, "w", zipfile.ZIP_DEFLATED) as zf:
         for path in sorted(files):
-            zf.write(path, arcname=path.name)
+            zf.write(path, arcname=f"output/{path.name}")
+        for src, arc in EXTRA_FILES:
+            zf.write(src, arcname=arc)
 
     with zipfile.ZipFile(ZIP_PATH) as zf:
         names = zf.namelist()
+
+    # Chan tuyet doi: khong secret, khong cache, khong virtualenv lot vao zip
+    banned = [n for n in names
+              if ".env" in n or "__pycache__" in n or n.startswith((".venv", "venv"))
+              or n.endswith((".pyc", ".key"))]
+    if banned:
+        ZIP_PATH.unlink()
+        print(f"[x] Zip chua file cam, da xoa zip: {banned}")
+        return 1
+
+    n_out = sum(1 for n in names if n.startswith("output/"))
     size_kb = ZIP_PATH.stat().st_size / 1024
 
-    print(f"[v] {len(files)} file hop le, khong loi")
+    print(f"[v] {len(files)} file output hop le, khong loi")
     print(f"[v] Da tao {ZIP_PATH.name} ({size_kb:.1f} KB, {len(names)} entry)")
-    print(f"[v] Entry dau/cuoi: {names[0]} .. {names[-1]}")
+    print(f"[v] output/: {n_out} file | kem: {', '.join(a for _, a in EXTRA_FILES)}")
+    print(f"[v] Khong co .env / __pycache__ / venv trong zip")
     return 0
 
 
