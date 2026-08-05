@@ -1,0 +1,45 @@
+{
+  "project": "K3 Day 09 - Multi-Agent E-commerce Dispute Resolution",
+  "policy_version": "EC_POLICY_V1",
+  "model": {
+    "name": "llama-3.1-8b-instant",
+    "parameter_size": "8B",
+    "within_10b_limit": true,
+    "provider": "groq",
+    "hosting": "cloud_api",
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "response_format": "json_object",
+    "declared_in_source": "src/config.py (LLM_MODEL)"
+  },
+  "framework": {
+    "orchestration": "custom multi-agent (khong dung LangChain/CrewAI/AutoGen)",
+    "agent_count": 6,
+    "agents": [
+      "coordinator",
+      "order_seller",
+      "delivery",
+      "payment",
+      "policy",
+      "verifier"
+    ],
+    "schema_validation": "pydantic 2.13.4",
+    "data_layer": "pandas 3.0.3",
+    "llm_sdk": "groq 1.6.0"
+  },
+  "runtime": {
+    "language": "Python",
+    "python_version": "3.14.5",
+    "os": "Windows 11 (10.0.26200)",
+    "entrypoint": "python main.py",
+    "input_dir": "input/",
+    "output_dir": "output/",
+    "trace": "logging/trace.jsonl"
+  },
+  "design_notes": {
+    "numeric_authority": "deterministic Python (pandas) - LLM khong bao gio la nguon cua so tien hay ID",
+    "llm_role": "suy luan, phan loai va giai thich; moi ket luan deu qua guard doi chieu voi ket qua deterministic",
+    "guard_policy": "LLM bat dong voi deterministic -> lay deterministic, tru confidence 0.05, ghi trace agreement=false",
+    "degraded_mode": "khong co GROQ_API_KEY -> pipeline van chay deterministic-only, khong crash"
+  }
+}

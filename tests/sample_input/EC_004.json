@@ -1,0 +1,10 @@
+{
+  "case_id": "EC_004",
+  "opened_at": "2018-10-18T00:00:00-03:00",
+  "customer_request": {
+    "language": "vi",
+    "message": "Đơn của tôi bị hủy nhưng tôi đã thanh toán. Tôi muốn được hoàn tiền.",
+    "claimed_order_id": "c272bcd21c287498b4883c7512019702"
+  },
+  "policy_version": "EC_POLICY_V1"
+}

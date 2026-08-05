@@ -1,0 +1,26 @@
+# --- secrets: TUYET DOI khong commit ---
+.env
+.env.local
+*.key
+
+# --- python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# --- artifact tam ---
+output/*.zip
+/output.zip
+.cache/
+*.log
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,122 @@
+{
+  "EC_001": {
+    "order_id": "1b9ecfe83cdc259250e1a8aca174f0ad",
+    "primary_issue": "canceled_order_paid",
+    "root_cause_code": "ORDER_CANCELED_AFTER_PAYMENT",
+    "case_status": "action_required",
+    "item_total_brl": 25.0,
+    "freight_total_brl": 8.34,
+    "payment_total_brl": 33.34,
+    "recommended_refund_brl": 33.34
+  },
+  "EC_002": {
+    "order_id": "714fb133a6730ab81fa1d3c1b2007291",
+    "primary_issue": "canceled_order_paid",
+    "root_cause_code": "ORDER_CANCELED_AFTER_PAYMENT",
+    "case_status": "action_required",
+    "item_total_brl": 69.9,
+    "freight_total_brl": 26.11,
+    "payment_total_brl": 96.01,
+    "recommended_refund_brl": 96.01
+  },
+  "EC_003": {
+    "order_id": "8e24261a7e58791d10cb1bf9da94df5c",
+    "primary_issue": "unavailable_order_paid",
+    "root_cause_code": "ORDER_UNAVAILABLE_AFTER_PAYMENT",
+    "case_status": "action_required",
+    "item_total_brl": 0.0,
+    "freight_total_brl": 0.0,
+    "payment_total_brl": 84.0,
+    "recommended_refund_brl": 84.0
+  },
+  "EC_004": {
+    "order_id": "c272bcd21c287498b4883c7512019702",
+    "primary_issue": "unavailable_order_paid",
+    "root_cause_code": "ORDER_UNAVAILABLE_AFTER_PAYMENT",
+    "case_status": "action_required",
+    "item_total_brl": 0.0,
+    "freight_total_brl": 0.0,
+    "payment_total_brl": 97.68,
+    "recommended_refund_brl": 97.68
+  },
+  "EC_005": {
+    "order_id": "203096f03d82e0dffbc41ebc2e2bcfb7",
+    "primary_issue": "late_delivery_seller",
+    "root_cause_code": "SELLER_HANDOFF_AFTER_LIMIT",
+    "case_status": "action_required",
+    "item_total_brl": 109.9,
+    "freight_total_brl": 8.96,
+    "payment_total_brl": 118.86,
+    "recommended_refund_brl": 8.96
+  },
+  "EC_006": {
+    "order_id": "6ea2f835b4556291ffdc53fa0b3b95e8",
+    "primary_issue": "late_delivery_seller",
+    "root_cause_code": "SELLER_HANDOFF_AFTER_LIMIT",
+    "case_status": "action_required",
+    "item_total_brl": 339.0,
+    "freight_total_brl": 17.12,
+    "payment_total_brl": 356.12,
+    "recommended_refund_brl": 17.12
+  },
+  "EC_007": {
+    "order_id": "fbf9ac61453ac646ce8ad9783d7d0af6",
+    "primary_issue": "late_delivery_logistics",
+    "root_cause_code": "CARRIER_DELIVERED_AFTER_ESTIMATE",
+    "case_status": "action_required",
+    "item_total_brl": 109.9,
+    "freight_total_brl": 15.53,
+    "payment_total_brl": 125.43,
+    "recommended_refund_brl": 15.53
+  },
+  "EC_008": {
+    "order_id": "8563039e855156e48fccee4d611a3196",
+    "primary_issue": "late_delivery_logistics",
+    "root_cause_code": "CARRIER_DELIVERED_AFTER_ESTIMATE",
+    "case_status": "action_required",
+    "item_total_brl": 78.0,
+    "freight_total_brl": 28.95,
+    "payment_total_brl": 106.95,
+    "recommended_refund_brl": 28.95
+  },
+  "EC_009": {
+    "order_id": "e481f51cbdc54678b7cc49136f2d6af7",
+    "primary_issue": "valid_split_payment",
+    "root_cause_code": "MULTIPLE_PAYMENTS_RECONCILED",
+    "case_status": "no_action",
+    "item_total_brl": 29.99,
+    "freight_total_brl": 8.72,
+    "payment_total_brl": 38.71,
+    "recommended_refund_brl": 0.0
+  },
+  "EC_010": {
+    "order_id": "e69bfb5eb88e0ed6a785585b27e16dbf",
+    "primary_issue": "valid_split_payment",
+    "root_cause_code": "MULTIPLE_PAYMENTS_RECONCILED",
+    "case_status": "no_action",
+    "item_total_brl": 149.99,
+    "freight_total_brl": 19.77,
+    "payment_total_brl": 169.76,
+    "recommended_refund_brl": 0.0
+  },
+  "EC_011": {
+    "order_id": "53cdb2fc8bc7dce0b6741e2150273451",
+    "primary_issue": "unsupported_late_claim",
+    "root_cause_code": "DELIVERY_WITHIN_ESTIMATE",
+    "case_status": "no_action",
+    "item_total_brl": 118.7,
+    "freight_total_brl": 22.76,
+    "payment_total_brl": 141.46,
+    "recommended_refund_brl": 0.0
+  },
+  "EC_012": {
+    "order_id": "47770eb9100c2d0c44946d9cf07ec65d",
+    "primary_issue": "unsupported_late_claim",
+    "root_cause_code": "DELIVERY_WITHIN_ESTIMATE",
+    "case_status": "no_action",
+    "item_total_brl": 159.9,
+    "freight_total_brl": 19.22,
+    "payment_total_brl": 179.12,
+    "recommended_refund_brl": 0.0
+  }
+}
